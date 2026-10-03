@@ -1,22 +1,19 @@
 {
   "name": "frida-module-example",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Example Frida module written in TypeScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "/dist/**/*.js",
-    "/dist/**/*.d.ts"
+    "/dist"
   ],
   "type": "module",
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc",
-    "watch": "tsc -w"
+    "build": "frida-compile --library lib/index.ts -o dist",
+    "watch": "frida-compile --library -w lib/index.ts -o dist"
   },
   "devDependencies": {
-    "@types/frida-gum": "^18.5.1",
-    "@types/node": "^18.19.3",
-    "typescript": "^5.3.3"
+    "frida-compile": "^19.1.0"
   }
 }
